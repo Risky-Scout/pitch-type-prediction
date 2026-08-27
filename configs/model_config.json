@@ -1,0 +1,93 @@
+{
+  "target": "pitch_type",
+  "features": [
+    "inning_number",
+    "inning_half",
+    "balls",
+    "strikes",
+    "outs",
+    "hitter_hand",
+    "ab_pitch_count",
+    "pitch_count",
+    "previous_pitch_type"
+  ],
+  "classes": [
+    "Changeup",
+    "Four-Seam Fastball",
+    "Sinker",
+    "Slider"
+  ],
+  "grouping": {
+    "rule": "new group when pitch_count <= previous pitch_count OR inning_half changes",
+    "rationale": "pitch_count is ordinal within a game; a non-increase implies a new game/run. A single pitcher cannot switch top/bottom inning half within the same game.",
+    "limitation": "The CSV contains no true game_id or date. These are conservative contiguous blocks, not verified games."
+  },
+  "outer_split": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 20260825,
+    "assignment": {
+      "test": [
+        0
+      ],
+      "validation": [
+        1
+      ],
+      "train": [
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "train_model_selection_cv": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 4,
+    "shuffle": true,
+    "random_state": 20260842
+  },
+  "final_development_oof_cv": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 20260866
+  },
+  "xgboost": {
+    "max_depth": 2,
+    "learning_rate": 0.0168322,
+    "n_estimators": 800,
+    "min_child_weight": 23.2608,
+    "reg_lambda": 10.0417,
+    "reg_alpha": 1.111,
+    "subsample": 0.8631,
+    "colsample_bytree": 0.8995,
+    "gamma": 0.6703
+  },
+  "catboost": {
+    "iterations": 700,
+    "depth": 4,
+    "learning_rate": 0.025,
+    "l2_leaf_reg": 30,
+    "random_strength": 0.8,
+    "bagging_temperature": 0.7
+  },
+  "stacker": {
+    "C": 0.1,
+    "solver": "lbfgs",
+    "max_iter": 3000,
+    "random_state": 20260825,
+    "features": "log probabilities from [xgboost, catboost]",
+    "clip": 1e-09
+  },
+  "calibration": "none",
+  "primary_metric": "log_loss",
+  "secondary_metrics": [
+    "brier",
+    "auc_macro_ovr",
+    "top_label_ece_10",
+    "classwise_ece_10",
+    "adaptive_top_ece_10",
+    "accuracy"
+  ]
+}

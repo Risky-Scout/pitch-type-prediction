@@ -1,0 +1,3 @@
+inning_number,inning_half,balls,strikes,outs,hitter_hand,ab_pitch_count,pitch_count,previous_pitch_type
+5,B,1,1,1,R,3,75,Slider
+7,T,0,2,2,L,4,102,Four-Seam Fastball

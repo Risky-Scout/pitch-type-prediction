@@ -1,0 +1,28 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+data/*.csv
+!data/README.md
+demo_input.csv
+demo_predictions.csv
+artifacts/reproduced/
+artifacts/research_rerun.csv
+
+# Local environment
+.venv/
+.DS_Store
+__pycache__/
+.pytest_cache/
+
+# Local reproduction outputs
+reproduced/
+reproduced_2/
+
+# Recruiter-provided source files
+pitch-type-prediction-data.csv
+pitch-type-prediction-instructions.pdf
