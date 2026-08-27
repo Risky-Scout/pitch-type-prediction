@@ -78,3 +78,6 @@ def main() -> None:
     print(f"{'✓' if valid else '✗'} Four probability columns are bounded in [0, 1]")
     print(f"{'✓' if valid else '✗'} Every row sums to 1 (max |Σp−1| = {max_error:.2e})")
     print(f"✓ CSV written to: {args.output}")
+
+if __name__ == "__main__":
+    main()
