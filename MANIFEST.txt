@@ -1,5 +1,6 @@
 .github/workflows/ci.yml
 .gitignore
+.presentation_cli_backup/predict.py
 artifacts/config.json
 artifacts/effective_hyperparameters.json
 artifacts/feature_importance_validation.csv
@@ -14,10 +15,12 @@ configs/model_config.json
 data/README.md
 demo_input.example.csv
 GITHUB_PUBLISH.md
+INSTALL_AND_SYNC.md
 INTERVIEW_WALKTHROUGH.md
 Makefile
 MANIFEST.txt
 MODEL_CARD.md
+pitch_type_presentation_cli_upgrade.zip
 pyproject.toml
 README.md
 RECRUITER_SUMMARY.md
@@ -27,9 +30,13 @@ reports/validation_feature_importance.png
 requirements.txt
 SHA256SUMS.txt
 src/pitch_type_prediction/__init__.py
+src/pitch_type_prediction/audit.py
 src/pitch_type_prediction/core.py
 src/pitch_type_prediction/predict.py
+src/pitch_type_prediction/report.py
 src/pitch_type_prediction/research.py
+src/pitch_type_prediction/terminal_ui.py
 src/pitch_type_prediction/train.py
+tests/test_presentation_cli.py
 tests/test_smoke.py
 VERIFICATION.md

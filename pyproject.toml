@@ -29,6 +29,8 @@ dev = [
 pitch-train = "pitch_type_prediction.train:main"
 pitch-predict = "pitch_type_prediction.predict:main"
 pitch-research = "pitch_type_prediction.research:main"
+pitch-report = "pitch_type_prediction.report:main"
+pitch-audit = "pitch_type_prediction.audit:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

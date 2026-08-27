@@ -223,3 +223,21 @@ selected hyperparameters, metrics, and calibration decision.
 `artifacts/effective_hyperparameters.json` records the effective fitted-model
 parameter sets, including library defaults, for XGBoost, CatBoost, and the
 multinomial stacker.
+
+## Presentation-friendly terminal commands
+
+The package includes human-readable terminal views for live review and screen sharing.
+
+Model/backtest report:
+
+    python -m pitch_type_prediction.report
+
+Integrity and leakage audit:
+
+    python -m pitch_type_prediction.audit --data pitch-type-prediction-data.csv
+
+Live prediction table:
+
+    python -m pitch_type_prediction.predict --model artifacts/pitch_type_model.joblib --input demo_input.example.csv --output demo_predictions.csv
+
+These commands do not alter the fitted statistical model or the locked evaluation protocol.
