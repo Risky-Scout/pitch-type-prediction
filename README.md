@@ -101,7 +101,7 @@ Validation-set permutation importance measured by change in log loss ranks the s
 4. `previous_pitch_type`
 5. `ab_pitch_count`
 
-See [`artifacts/feature_importance_validation.csv`](artifacts/feature_importance_validation.csv) and [`reports/feature_importance.png`](reports/feature_importance.png).
+See [`artifacts/feature_importance_validation.csv`](artifacts/feature_importance_validation.csv) and [`reports/validation_feature_importance.png`](reports/validation_feature_importance.png).
 
 ## Repository layout
 
@@ -211,6 +211,15 @@ Environment setup:
 Full retraining:
 
     python -m pitch_type_prediction.train \
-      --data pitch-type-prediction-data.csv \
+      --data data/pitch-type-prediction-data.csv \
       --output-dir reproduced
 
+
+
+## Hyperparameter provenance
+
+`configs/model_config.json` records the locked architecture, split/CV seeds,
+selected hyperparameters, metrics, and calibration decision.
+`artifacts/effective_hyperparameters.json` records the effective fitted-model
+parameter sets, including library defaults, for XGBoost, CatBoost, and the
+multinomial stacker.

@@ -172,7 +172,7 @@ pytest -q
 
 python -m pitch_type_prediction.predict \
   --model artifacts/pitch_type_model.joblib \
-  --input demo_input.csv \
+  --input demo_input.example.csv \
   --output demo_predictions.csv
 ```
 
